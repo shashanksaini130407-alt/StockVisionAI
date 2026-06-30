@@ -20,7 +20,7 @@
 
 .card{
 
-    background:var(--card);
+    background:rgba(255,255,255,.92);
 
     backdrop-filter:blur(16px);
 
@@ -90,7 +90,7 @@
 
     font-size:14px;
 
-    color:var(--text);
+    color:#64748b;
 
     font-weight:600;
 
@@ -100,7 +100,7 @@
 
     font-size:14px;
 
-    color:var(--text);
+    color:#64748b;
 
     font-weight:600;
 
@@ -118,7 +118,7 @@
 
     font-size:34px;
 
-    color:var(--text);
+    color:#0f172a;
 
     font-weight:700;
 
@@ -130,7 +130,7 @@
 
 .card small{
 
-    color:var(--text);
+    color:#94a3b8;
 
     font-size:13px;
 
@@ -218,7 +218,7 @@
 
 .stock-name p{
 
-    color:var(--text);
+    color:var(--text-light);
 
     font-size:16px;
 
@@ -250,19 +250,19 @@
 
 .primary-card h4{
 
-    color:var(--text);
+    color:rgba(255,255,255,.8);
 
 }
 
 .primary-card h2{
 
-    color:var(--text);
+    color:white;
 
 }
 
 .primary-card small{
 
-    color:var(--text);
+    color:rgba(255,255,255,.75);
 
 }
 
@@ -380,7 +380,7 @@
 
 .analytics-item h4{
 
-    color:var(--text);
+    color:var(--text-light);
 
     margin-bottom:12px;
 
@@ -390,7 +390,7 @@
 
     font-size:30px;
 
-    color:var(--text);
+    color:var(--primary);
 
 }
 
@@ -471,7 +471,7 @@
 
 .company-card>p{
 
-    color:var(--text);
+    color:var(--text-light);
 
     margin-bottom:25px;
 

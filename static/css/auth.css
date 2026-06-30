@@ -20,7 +20,7 @@
 
     max-width:450px;
 
-    background:var(--card);
+    background:var(--surface);
 
     padding:40px;
 
@@ -72,7 +72,7 @@
 
 .auth-btn{
 
-    background:var(--primary);
+    background:#2563eb;
 
     color:white;
 

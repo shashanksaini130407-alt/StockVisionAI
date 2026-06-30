@@ -40,7 +40,7 @@
 
     font-size:18px;
 
-    color:var(--text);
+    color:var(--text-light);
 
     margin-bottom:40px;
 
@@ -180,7 +180,7 @@
 
     margin-top:40px;
 
-    background:var(--card);
+    background:var(--surface);
 
     border-radius:18px;
 
@@ -215,7 +215,7 @@
 
     padding:25px;
 
-    background:var(--card);
+    background:var(--surface);
 
     border-radius:18px;
 
@@ -247,6 +247,6 @@
 
     margin-top:8px;
 
-    color:var(--text);
+    color:var(--text-light);
 
 }

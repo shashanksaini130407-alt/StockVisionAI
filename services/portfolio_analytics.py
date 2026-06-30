@@ -55,11 +55,7 @@ def create_portfolio_chart(rows):
     )
 
     return pio.to_html(
-
         fig,
-
         full_html=False,
-
-        include_plotlyjs=False
-
+        include_plotlyjs=True
     )

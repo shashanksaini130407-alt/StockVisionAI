@@ -23,7 +23,7 @@
 
 .analytics-card{
 
-    background:var(--card);
+    background:white;
     border-radius:18px;
     padding:35px;
     text-align:center;
@@ -41,14 +41,14 @@
 
 .analytics-card h3{
 
-    color:var(--text);
+    color:#666;
     margin-bottom:15px;
 
 }
 
 .analytics-card h1{
 
-    color:var(--text);
+    color:#2962ff;
     font-size:40px;
 
 }
@@ -83,7 +83,7 @@
 
 .chart-card{
 
-    background:var(--card);
+    background:white;
 
     border-radius:20px;
 
