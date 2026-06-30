@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}
+Analytics | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<section class="analytics-page">
+
+    <div class="analytics-header">
+
+        <h1>
+
+            📊 Analytics Dashboard
+
+        </h1>
+
+        <p>
+
+            Your AI investment performance overview.
+
+        </p>
+
+    </div>
+
+    <div class="analytics-grid">
+
+        <div class="analytics-card">
+
+            <h3>Total Predictions</h3>
+
+            <h1>
+
+                {{ stats.total_predictions }}
+
+            </h1>
+
+        </div>
+
+        <div class="analytics-card">
+
+            <h3>Watchlist</h3>
+
+            <h1>
+
+                {{ stats.watchlist_count }}
+
+            </h1>
+
+        </div>
+
+        <div class="analytics-card">
+
+            <h3>BUY Signals</h3>
+
+            <h1>
+
+                {{ stats.buy_count }}
+
+            </h1>
+
+        </div>
+
+        <div class="analytics-card">
+
+            <h3>SELL Signals</h3>
+
+            <h1>
+
+                {{ stats.sell_count }}
+
+            </h1>
+
+        </div>
+
+        <div class="analytics-card full">
+
+            <h3>
+
+                Average Expected Gain
+
+            </h3>
+
+            <h1>
+
+                {{ stats.avg_change }}%
+
+            </h1>
+
+        </div>
+
+    </div>
+
+    <hr class="analytics-divider">
+
+    <h2 class="section-title">
+
+        📈 Interactive Analytics
+
+    </h2>
+
+    <div class="chart-grid">
+
+        <div class="chart-card animate-chart">
+
+            {% if charts.pie_chart %}
+
+                {{ charts.pie_chart|safe }}
+
+            {% else %}
+
+                <p>No prediction data available.</p>
+
+            {% endif %}
+
+        </div>
+
+        <div class="chart-card animate-chart">
+
+            {% if charts.line_chart %}
+
+                {{ charts.line_chart|safe }}
+
+            {% endif %}
+
+        </div>
+
+        <div class="chart-card full-chart animate-chart">
+
+            {% if charts.bar_chart %}
+
+                {{ charts.bar_chart|safe }}
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const cards=document.querySelectorAll(".animate-chart");
+
+    cards.forEach((card,index)=>{
+
+        setTimeout(()=>{
+
+            card.classList.add("show");
+
+        },index*250);
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

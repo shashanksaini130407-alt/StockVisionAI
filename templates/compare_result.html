@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}
+Comparison Result
+{% endblock %}
+
+{% block content %}
+
+<div class="compare-page fade-in">
+
+    <h1>
+
+        📊 AI Stock Comparison
+
+    </h1>
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+
+            <h4>🏆 Best Pick</h4>
+
+            <h2>{{ best_stock.symbol }}</h2>
+
+            <p>{{ best_stock.recommendation }}</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h4>📈 Highest Upside</h4>
+
+            <h2>{{ highest_upside.symbol }}</h2>
+
+            <p>{{ highest_upside.change_percent }}%</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h4>🛡 Lowest Risk</h4>
+
+            <h2>{{ lowest_risk.symbol }}</h2>
+
+            <p>{{ lowest_risk.risk }}</p>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h4>🎯 AI Confidence</h4>
+
+            <h2>{{ best_stock.confidence }}%</h2>
+
+            <p>{{ best_stock.symbol }}</p>
+
+        </div>
+
+    </div>
+
+    {% if results %}
+
+    <table class="compare-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Metric</th>
+
+                {% for stock in results %}
+
+                <th>{{ stock.symbol }}</th>
+
+                {% endfor %}
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>Current Price</td>
+
+                {% for stock in results %}
+
+                <td>${{ stock.current_price }}</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Prediction</td>
+
+                {% for stock in results %}
+
+                <td>${{ stock.prediction }}</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Expected Change</td>
+
+                {% for stock in results %}
+
+                <td>{{ stock.change_percent }}%</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Signal</td>
+
+                {% for stock in results %}
+
+                <td class="{{ 'buy' if stock.signal=='BUY' else 'sell' }}">
+
+                    {{ stock.signal }}
+
+                </td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Trend</td>
+
+                {% for stock in results %}
+
+                <td>{{ stock.trend }}</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Confidence</td>
+
+                {% for stock in results %}
+
+                <td>{{ stock.confidence }}%</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Risk</td>
+
+                {% for stock in results %}
+
+                <td>{{ stock.risk }}</td>
+
+                {% endfor %}
+
+            </tr>
+
+            <tr>
+
+                <td>Recommendation</td>
+
+                {% for stock in results %}
+
+                <td>{{ stock.recommendation }}</td>
+
+                {% endfor %}
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <h2>
+
+        No valid stocks found.
+
+    </h2>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

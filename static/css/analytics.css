@@ -1,0 +1,144 @@
+.analytics-page{
+
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+
+}
+
+.analytics-header{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+.analytics-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+
+}
+
+.analytics-card{
+
+    background:var(--card);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.analytics-card h3{
+
+    color:var(--text);
+    margin-bottom:15px;
+
+}
+
+.analytics-card h1{
+
+    color:var(--text);
+    font-size:40px;
+
+}
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+.analytics-divider{
+
+    margin:60px 0;
+
+    border:none;
+
+    border-top:1px solid #ddd;
+
+}
+
+.chart-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.chart-card{
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+}
+
+.full-chart{
+
+    grid-column:1/-1;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.chart-card .plotly-graph-div{
+
+    width:100% !important;
+
+    height:420px !important;
+
+}
+
+/* =======================================
+   Chart Fade Animation
+======================================= */
+
+.animate-chart{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.animate-chart.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}

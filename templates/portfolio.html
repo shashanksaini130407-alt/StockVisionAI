@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block title %}
+Portfolio | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<section class="portfolio-page">
+
+    <h1>
+
+        💼 Portfolio
+
+    </h1>
+
+    <!-- ========================= -->
+    <!-- Add Stock Form -->
+    <!-- ========================= -->
+
+    <form
+        action="/portfolio/add"
+        method="POST"
+        class="portfolio-form">
+
+        <input
+            type="text"
+            name="symbol"
+            placeholder="Stock Symbol"
+            required>
+
+        <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            required>
+
+        <input
+            type="number"
+            step="0.01"
+            name="buy_price"
+            placeholder="Buy Price"
+            required>
+
+        <button
+            class="btn btn-primary">
+
+            Add Stock
+
+        </button>
+
+    </form>
+
+    <!-- ========================= -->
+    <!-- Portfolio Summary -->
+    <!-- ========================= -->
+
+    <div class="portfolio-summary">
+
+        <div class="summary-card">
+
+            <h3>Total Investment</h3>
+
+            <h2>
+
+                ${{ summary.investment }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Current Value</h3>
+
+            <h2>
+
+                ${{ summary.current_value }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Total Profit</h3>
+
+            <h2 class="{{ 'profit' if summary.profit >= 0 else 'loss' }}">
+
+                ${{ summary.profit }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <h3>Total Return</h3>
+
+            <h2 class="{{ 'profit' if summary.return_percent >= 0 else 'loss' }}">
+
+                {{ summary.return_percent }}%
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h2>
+
+            📊 Portfolio Allocation
+
+        </h2>
+
+        {% if portfolio_chart %}
+
+            {{ portfolio_chart|safe }}
+
+        {% else %}
+
+            <p>
+
+                No portfolio data available.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Portfolio Table -->
+    <!-- ========================= -->
+
+    <table class="history-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Stock</th>
+
+                <th>Qty</th>
+
+                <th>Buy Price</th>
+
+                <th>Current Price</th>
+
+                <th>Investment</th>
+
+                <th>Current Value</th>
+
+                <th>Profit/Loss</th>
+
+                <th>Return %</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for row in rows %}
+
+            <tr>
+
+                <td>
+
+                    <strong>{{ row.symbol }}</strong>
+
+                </td>
+
+                <td>
+
+                    {{ row.quantity }}
+
+                </td>
+
+                <td>
+
+                    ${{ row.buy_price }}
+
+                </td>
+
+                <td>
+
+                    ${{ row.current_price }}
+
+                </td>
+
+                <td>
+
+                    ${{ row.investment }}
+
+                </td>
+
+                <td>
+
+                    ${{ row.current_value }}
+
+                </td>
+
+                <td class="{{ 'profit' if row.profit >= 0 else 'loss' }}">
+
+                    ${{ row.profit }}
+
+                </td>
+
+                <td class="{{ 'profit' if row.return_percent >= 0 else 'loss' }}">
+
+                    {{ row.return_percent }}%
+
+                </td>
+
+                <td>
+
+                    <a
+                        href="/portfolio/delete/{{ row.id }}"
+                        class="btn btn-danger">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<script>
+
+window.addEventListener("load", function () {
+
+    const chart = document.getElementById("portfolioChart");
+
+    if (chart) {
+
+        chart.style.opacity = "0";
+
+        chart.style.transform = "translateY(25px)";
+
+        setTimeout(() => {
+
+            chart.style.transition = "all 0.8s ease";
+
+            chart.style.opacity = "1";
+
+            chart.style.transform = "translateY(0)";
+
+        }, 300);
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

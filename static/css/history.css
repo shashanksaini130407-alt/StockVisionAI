@@ -1,0 +1,213 @@
+/* ==========================================================
+   HISTORY PAGE
+========================================================== */
+
+.history-page{
+
+    margin-top:40px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.history-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.history-header h1{
+
+    margin:0;
+
+    font-size:38px;
+
+}
+
+.history-header p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.history-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
+
+.history-actions input{
+
+    width:240px;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--text);
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn{
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-danger{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+.btn-danger:hover{
+
+    background:#dc2626;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.history-table-container{
+
+    overflow:auto;
+
+    background:var(--surface);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.history-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.history-table thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.history-table th{
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+.history-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.history-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.history-table tbody tr:hover{
+
+    background:rgba(37,99,235,.06);
+
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.badge{
+
+    padding:8px 15px;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+    font-size:13px;
+
+}
+
+.buy-badge{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.sell-badge{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+
+}

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}
+Watchlist | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<div class="watchlist-page fade-in">
+
+    <div class="watchlist-header">
+
+        <h1>⭐ My Watchlist</h1>
+
+        <p>
+
+            Live AI monitoring of your favourite stocks.
+
+        </p>
+
+    </div>
+
+    {% if stocks %}
+
+    <div class="watchlist-grid">
+
+        {% for stock in stocks %}
+
+        <div class="watch-card card">
+
+            <div class="watch-top">
+
+                <h2>
+
+                    {{ stock.symbol }}
+
+                </h2>
+
+                <span class="
+                {% if stock.signal == 'BUY' %}
+                buy
+                {% else %}
+                sell
+                {% endif %}
+                ">
+
+                    {{ stock.signal }}
+
+                </span>
+
+            </div>
+
+            <div class="watch-info">
+
+                <p>
+
+                    💲 Current Price
+
+                    <strong>
+
+                        ${{ stock.current_price }}
+
+                    </strong>
+
+                </p>
+
+                <p>
+
+                    🤖 Prediction
+
+                    <strong>
+
+                        ${{ stock.prediction }}
+
+                    </strong>
+
+                </p>
+
+                <p>
+
+                    📈 Trend
+
+                    <strong>
+
+                        {{ stock.trend }}
+
+                    </strong>
+
+                </p>
+
+                <p>
+
+                    🎯 Confidence
+
+                    <strong>
+
+                        {{ stock.confidence }}%
+
+                    </strong>
+
+                </p>
+
+                <p>
+
+                    ⚠ Risk
+
+                    <strong>
+
+                        {{ stock.risk }}
+
+                    </strong>
+
+                </p>
+
+            </div>
+
+            <div class="watch-buttons">
+
+                <form
+                    action="/predict"
+                    method="POST">
+
+                    <input
+                        type="hidden"
+                        name="symbol"
+                        value="{{ stock.symbol }}">
+
+                    <button
+                        class="analyze-small">
+
+                        Analyze
+
+                    </button>
+
+                </form>
+
+                <a
+
+                    href="/watchlist/delete/{{ stock.id }}"
+
+                    class="delete-btn">
+
+                    Remove
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-watchlist">
+
+        <h2>📈</h2>
+
+        <h3>No Stocks Saved</h3>
+
+        <p>
+
+            Add stocks from the dashboard.
+
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

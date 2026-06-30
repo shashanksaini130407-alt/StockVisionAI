@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Compare Stocks
+{% endblock %}
+
+{% block content %}
+
+<div class="compare-page fade-in">
+
+    <h1>
+
+        📊 Compare Stocks
+
+    </h1>
+
+    <p>
+
+        Compare multiple stocks using AI predictions.
+
+    </p>
+
+    <form
+        action="/compare/result"
+        method="POST"
+        class="compare-form">
+
+        <input
+            type="text"
+            name="symbols"
+            placeholder="Example: AAPL,MSFT,TSLA"
+            required>
+
+        <button>
+
+            Compare
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

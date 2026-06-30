@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}
+About | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<!-- Custom Layout Adjustments to guarantee a strict 50px spacing -->
+<style>
+    .about-page section {
+        margin-bottom: 50px !important;
+    }
+    /* Forces the grid items (like Watchlist and History cards) to separate if they stack */
+    .about-page .row.g-4 {
+        --bs-row-y-gap: 50px !important; 
+    }
+</style>
+
+<div class="container py-5 about-page">
+
+    <!-- Hero Section -->
+    <section class="text-center hero-section">
+        <h1 class="display-4 fw-bold mb-3">
+            📈 About StockVision AI
+        </h1>
+        <p class="lead text-muted mx-auto hero-text" style="max-width: 800px;">
+            An AI-powered stock market analysis and prediction platform designed
+            to help investors make smarter financial decisions using Machine
+            Learning, Technical Indicators and Interactive Analytics.
+        </p>
+    </section>
+
+    <!-- Project Overview -->
+    <section>
+        <div class="card shadow-lg border-0 about-card">
+            <div class="card-body p-5">
+                <h2 class="mb-4">
+                    🚀 Project Overview
+                </h2>
+                <p class="mb-0">
+                    StockVision AI combines Artificial Intelligence,
+                    Financial Analytics and Interactive Visualization
+                    into one intelligent platform.
+                </p>
+                <p class="mb-0 mt-2">
+                    Users can search stocks, predict future prices,
+                    compare companies, manage portfolios,
+                    analyze market trends and receive
+                    AI-powered BUY/SELL recommendations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+        <h2 class="text-start mb-4">
+            ⭐ Key Features
+        </h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">📊 Stock Prediction</h5>
+                        <p class="text-muted mb-0">
+                            Predict future stock prices using Machine Learning algorithms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">📈 Analytics Dashboard</h5>
+                        <p class="text-muted mb-0">
+                            Interactive charts, statistics, trends and performance insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">⚖ Stock Comparison</h5>
+                        <p class="text-muted mb-0">
+                            Compare multiple companies side-by-side with AI recommendations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">💼 Portfolio Management</h5>
+                        <p class="text-muted mb-0">
+                            Track investments, profits, returns and portfolio allocation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">⭐ Watchlist</h5>
+                        <p class="text-muted mb-0">
+                            Monitor favourite stocks with AI-powered recommendations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">📜 Prediction History</h5>
+                        <p class="text-muted mb-0">
+                            Search, export and review all previous predictions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section>
+        <div class="card shadow-lg border-0 about-card">
+            <div class="card-body p-5">
+                <h2 class="mb-4">
+                    ⚙ How StockVision AI Works
+                </h2>
+                <ol class="fs-5 mb-0">
+                    <li class="mb-2">Select a stock symbol.</li>
+                    <li class="mb-2">Download historical stock data.</li>
+                    <li class="mb-2">Generate technical indicators.</li>
+                    <li class="mb-2">Prepare machine learning features.</li>
+                    <li class="mb-2">Train Random Forest model.</li>
+                    <li class="mb-2">Predict future stock prices.</li>
+                    <li class="mb-2">Generate BUY / SELL recommendation.</li>
+                    <li>Display charts and analytics.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section>
+        <h2 class="text-center mb-4">
+            🛠 Technology Stack
+        </h2>
+        <div class="row g-4 text-center">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">Backend</h5>
+                        <hr>
+                        Flask<br>Python<br>SQLAlchemy<br>SQLite
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">Machine Learning</h5>
+                        <hr>
+                        Random Forest<br>Pandas<br>NumPy<br>Scikit-learn
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">Frontend</h5>
+                        <hr>
+                        HTML5<br>CSS3<br>JavaScript<br>Bootstrap
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card shadow-sm border-0 h-100 about-card">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold">Visualization</h5>
+                        <hr>
+                        Plotly<br>Interactive Charts<br>Dashboards
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future -->
+    <section>
+        <div class="card shadow-lg border-0 about-card">
+            <div class="card-body p-5">
+                <h2 class="mb-4">
+                    🚀 Future Roadmap
+                </h2>
+                <ul class="fs-5 mb-0">
+                    <li class="mb-2">Live Market Streaming</li>
+                    <li class="mb-2">News Sentiment Analysis</li>
+                    <li class="mb-2">LSTM Forecasting</li>
+                    <li class="mb-2">Transformer Models</li>
+                    <li class="mb-2">Crypto Market Support</li>
+                    <li class="mb-2">Email Alerts</li>
+                    <li>Mobile App</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer -->
+    <section style="margin-bottom: 0px !important;">
+        <div class="card shadow-lg border-0 about-card">
+            <div class="card-body text-center p-5">
+                <h2>👨‍💻 Developer</h2>
+                <h3 class="mt-4 fw-bold">Shashank Saini</h3>
+                <p class="lead text-muted">Computer Science Engineering Student</p>
+                <p>
+                    Passionate about Artificial Intelligence, Machine Learning, Data Science and Full Stack Development.
+                </p>
+                <hr>
+                <p class="mb-0 text-muted">
+                    Built with ❤️ using Flask, Machine Learning and Python.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

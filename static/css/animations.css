@@ -1,0 +1,126 @@
+/* ==========================================================
+   FADE ANIMATION
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+   SLIDE UP
+========================================================== */
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   GENERIC CLASSES
+========================================================== */
+
+.fade-in,
+.slide-up{
+
+    opacity:0;
+
+}
+
+.fade-in.show{
+
+    animation:fadeIn .8s ease forwards;
+
+}
+
+.slide-up.show{
+
+    animation:slideUp .8s ease forwards;
+
+}
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.card{
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+}
+
+/* ==========================================================
+   BUTTON HOVER
+========================================================== */
+
+.analyze-btn{
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.analyze-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+   CHART
+========================================================== */
+
+.chart-card{
+
+    transition:
+        all .6s ease;
+
+}
+
+/* ==========================================================
+   AI CARD
+========================================================== */
+
+.ai-card{
+
+    transition:
+        all .6s ease;
+
+}

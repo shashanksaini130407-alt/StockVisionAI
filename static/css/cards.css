@@ -1,0 +1,536 @@
+/* ==========================================
+   DASHBOARD GRID
+========================================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:24px;
+
+    margin:45px 0;
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.card{
+
+    background:var(--card);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.08);
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+
+    border:1px solid rgba(255,255,255,.5);
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:5px;
+
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        #2563eb,
+        #38bdf8
+    );
+
+}
+
+.card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.12);
+
+    border-color:
+        var(--primary);
+
+}
+
+/* ==========================================
+   TITLES
+========================================== */
+
+.card h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+.card-title{
+
+    font-size:14px;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   VALUES
+========================================== */
+
+.card h2{
+
+    margin-top:16px;
+
+    margin-bottom:10px;
+
+    font-size:34px;
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.card small{
+
+    color:var(--text);
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   SIGNAL COLORS
+========================================== */
+
+.buy{
+
+    color:#16a34a;
+
+}
+
+.sell{
+
+    color:#dc2626;
+
+}
+
+/* ==========================================
+   RISK
+========================================== */
+
+.low-risk{
+
+    color:#16a34a;
+
+}
+
+.medium-risk{
+
+    color:#f59e0b;
+
+}
+
+.high-risk{
+
+    color:#dc2626;
+
+}
+
+/* ==========================================
+   CONFIDENCE
+========================================== */
+
+.high-confidence{
+
+    color:#16a34a;
+
+}
+
+.medium-confidence{
+
+    color:#f59e0b;
+
+}
+
+.low-confidence{
+
+    color:#dc2626;
+
+}
+
+.stock-name{
+
+    margin-top:40px;
+
+    margin-bottom:30px;
+
+}
+
+.stock-name h2{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+.stock-name p{
+
+    color:var(--text);
+
+    font-size:16px;
+
+}
+
+/* ==========================================
+   PRIMARY CARDS
+========================================== */
+
+.primary-card{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        #3b82f6
+    );
+
+    color:white;
+
+    border:none;
+
+}
+
+.primary-card::before{
+
+    background:white;
+
+}
+
+.primary-card h4{
+
+    color:var(--text);
+
+}
+
+.primary-card h2{
+
+    color:var(--text);
+
+}
+
+.primary-card small{
+
+    color:var(--text);
+
+}
+
+.primary-card:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+}
+
+/* ==========================================
+   PRIMARY CARD TEXT OVERRIDES
+========================================== */
+
+.primary-card .buy{
+
+    color:white;
+
+}
+
+.primary-card .sell{
+
+    color:white;
+
+}
+
+.primary-card .high-confidence{
+
+    color:white;
+
+}
+
+.primary-card .medium-confidence{
+
+    color:white;
+
+}
+
+.primary-card .low-confidence{
+
+    color:white;
+
+}
+
+/* ==========================================
+   PRIMARY CARD SIZE
+========================================== */
+
+.primary-card{
+
+    min-height:180px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+/* ======================================================
+   PREDICTION ANALYTICS
+====================================================== */
+
+.analytics-card{
+
+    margin-top:40px;
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.section-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+    color:var(--text);
+
+}
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.analytics-item{
+
+    background:var(--background);
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+}
+
+.analytics-item h4{
+
+    color:var(--text);
+
+    margin-bottom:12px;
+
+}
+
+.analytics-item h2{
+
+    font-size:30px;
+
+    color:var(--text);
+
+}
+
+/* ==========================================
+   WATCHLIST BUTTON
+========================================== */
+
+.watchlist-action{
+
+    margin-bottom:30px;
+
+}
+
+.watchlist-btn{
+
+    display:inline-block;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.25);
+
+}
+
+.watchlist-btn:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================
+   COMPANY PROFILE
+========================================== */
+
+.company-profile{
+
+    margin:35px 0;
+
+}
+
+.company-card{
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.company-card h2{
+
+    margin-bottom:8px;
+
+}
+
+.company-card>p{
+
+    color:var(--text);
+
+    margin-bottom:25px;
+
+}
+
+.company-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.company-grid div{
+
+    background:#f8fafc;
+
+    padding:18px;
+
+    border-radius:12px;
+
+}
+
+.company-grid strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:var(--primary);
+
+}
+
+.company-link{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.company-link:hover{
+
+    transform:translateY(-2px);
+
+}

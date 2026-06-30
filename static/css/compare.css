@@ -1,0 +1,164 @@
+.compare-page{
+
+    margin-top:50px;
+
+    text-align:center;
+
+}
+
+.compare-form{
+
+    margin-top:35px;
+
+}
+
+.compare-form input{
+
+    width:500px;
+
+    max-width:90%;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    margin-right:10px;
+
+}
+
+.compare-form button{
+
+    padding:16px 26px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   COMPARISON TABLE
+========================================== */
+
+.compare-table{
+
+    width:100%;
+
+    margin-top:40px;
+
+    border-collapse:collapse;
+
+    background:var(--surface);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.compare-table th{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:18px;
+
+}
+
+.compare-table td{
+
+    padding:16px;
+
+    text-align:center;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.compare-table tr:hover{
+
+    background:#f8fafc;
+
+}
+
+/* ==========================================
+   SUMMARY GRID
+========================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+    margin:45px 0;
+
+}
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.summary-card{
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:
+
+        translateY(-8px)
+
+        scale(1.02);
+
+}
+
+.summary-card h4{
+
+    color:var(--text);
+
+    margin-bottom:18px;
+
+}
+
+.summary-card h2{
+
+    font-size:34px;
+
+    color:var(--text);
+
+    margin-bottom:10px;
+
+}
+
+.summary-card p{
+
+    color:var(--text);
+
+}

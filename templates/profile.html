@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<section class="profile-page">
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+
+            {% if user["profile_image"] %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/profiles/' + user['profile_image']) }}"
+                    alt="Profile Photo">
+
+            {% else %}
+
+                <div class="avatar-placeholder">
+
+                    👤
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <h1>
+
+            {{ user["name"] }}
+
+        </h1>
+
+        <p>
+
+            {{ user["email"] }}
+
+        </p>
+
+        <hr>
+
+        <div class="profile-grid">
+
+            <div>
+
+                <h3>{{ total_predictions }}</h3>
+
+                <p>Predictions</p>
+
+            </div>
+
+            <div>
+
+                <h3>{{ watchlist_count }}</h3>
+
+                <p>Watchlist</p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="profile-actions">
+
+            <a
+                href="/settings"
+                class="btn btn-primary">
+
+                ⚙ Account Settings
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

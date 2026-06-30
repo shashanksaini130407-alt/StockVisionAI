@@ -1,0 +1,185 @@
+/* ==========================================
+   FULLSCREEN LOADER
+========================================== */
+
+.loader-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+    visibility:hidden;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.loader-overlay.active{
+
+    visibility:visible;
+
+    opacity:1;
+
+}
+
+/* ==========================================
+   SPINNER
+========================================== */
+
+.loader{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    border:7px solid rgba(37,99,235,.15);
+
+    border-top:7px solid var(--primary);
+
+    border-right:7px solid #38bdf8;
+
+    animation:spin .9s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================
+   LOADER TEXT
+========================================== */
+
+.loader-title{
+
+    margin-top:25px;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.loader-text{
+
+    margin-top:14px;
+
+    color:var(--text-light);
+
+    font-size:18px;
+
+    min-height:28px;
+
+    transition:opacity .3s ease;
+
+}
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.loader-progress{
+
+    width:320px;
+
+    height:8px;
+
+    background:#e5e7eb;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin-top:28px;
+
+}
+
+.loader-progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #38bdf8
+    );
+
+    animation:progressAnimation 6s linear forwards;
+
+}
+
+@keyframes progressAnimation{
+
+    from{
+
+        width:0%;
+
+    }
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================================
+   AI TITLE PULSE
+========================================== */
+
+.loader-title{
+
+    animation:pulseTitle 2s infinite;
+
+}
+
+@keyframes pulseTitle{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}

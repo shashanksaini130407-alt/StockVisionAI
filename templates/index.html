@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | StockVision AI
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            📈 StockVision AI
+
+        </h1>
+
+        <p>
+
+            AI-Powered Stock Market Analysis & Prediction Platform
+
+            <br><br>
+
+            Predict future stock prices using Machine Learning,
+            Technical Indicators, and intelligent AI recommendations.
+
+        </p>
+
+        <form
+            action="/predict"
+            method="POST"
+            class="search-form">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+
+                    🔍
+
+                </span>
+
+                <input
+                    type="text"
+                    name="symbol"
+                    placeholder="Search Stock Symbol (AAPL, TSLA, MSFT...)"
+                    required>
+
+            </div>
+
+            <button
+                class="analyze-btn"
+                type="submit">
+
+                Analyze Stock →
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% if error %}
+
+<div class="error-box">
+
+    {{ error }}
+
+</div>
+
+{% endif %}
+
+{% if prediction %}
+
+<div class="stock-name">
+
+    <div class="company-profile">
+
+        <div class="company-card">
+
+            <h2>
+
+                {{ company }}
+
+            </h2>
+
+            <p>
+
+                {{ sector }}
+
+                •
+
+                {{ industry }}
+
+            </p>
+
+            <div class="company-grid">
+
+                <div>
+
+                    <strong>Exchange</strong>
+
+                    <p>{{ exchange }}</p>
+
+                </div>
+
+                <div>
+
+                    <strong>Country</strong>
+
+                    <p>{{ country }}</p>
+
+                </div>
+
+                <div>
+
+                    <strong>Market Cap</strong>
+
+                    <p>{{ market_cap }}</p>
+
+                </div>
+
+                <div>
+
+                    <strong>Employees</strong>
+
+                    <p>{{ employees }}</p>
+
+                </div>
+
+            </div>
+
+            {% if website %}
+
+            <a
+
+            href="{{ website }}"
+
+            target="_blank"
+
+            class="company-link">
+
+                Visit Website →
+
+            </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <h2>
+
+        {{ symbol }}
+
+    </h2>
+
+    <p>
+
+        Machine Learning Prediction Dashboard
+
+    </p>
+
+</div>
+
+<div class="watchlist-action">
+
+    <a
+        href="/watchlist/add/{{ symbol }}"
+        class="watchlist-btn">
+
+        ⭐ Add to Watchlist
+
+    </a>
+
+</div>
+
+<div class="dashboard-grid">
+
+    <div class="card">
+
+        <h4>📈 Trend</h4>
+
+        <h2>{{ trend }}</h2>
+
+        <small>Current market direction</small>
+
+    </div>
+
+    <div class="card">
+
+        <h4>📊 Volatility</h4>
+
+        <h2 class="counter"
+            data-target="{{ volatility }}"
+            data-prefix=""
+            data-suffix="%">
+            0%
+        </h2>
+
+        <small>Historical price movement</small>
+
+    </div>
+
+    <div class="card">
+
+        <h4>⚠ Risk Level</h4>
+
+        <h2 class="
+        {% if risk == 'Low' %}
+            low-risk
+        {% elif risk == 'Medium' %}
+            medium-risk
+        {% else %}
+            high-risk
+        {% endif %}
+        ">
+
+            {{ risk }}
+
+        </h2>
+
+        <small>Estimated investment risk</small>
+
+    </div>
+
+    <div class="card primary-card">
+
+        <h4>💲 Current Price</h4>
+
+        <h2 class="counter"
+            data-target="{{ current_price }}"
+            data-prefix="$"
+            data-suffix="">
+            $0
+        </h2>
+
+        <small>Latest closing price</small>
+
+    </div>
+
+    <div class="card primary-card">
+
+        <h4>🤖 Predicted Price</h4>
+
+        <h2 class="counter"
+            data-target="{{ prediction }}"
+            data-prefix="$"
+            data-suffix="">
+            $0
+        </h2>
+
+        <small>Random Forest prediction</small> 
+
+    </div>
+
+    <div class="card">
+
+        <h4>📈 Expected Change</h4>
+
+        <h2 class="counter"
+            data-target="{{ change_percent }}"
+            data-prefix=""
+            data-suffix="%">
+            0%
+        </h2>
+
+        <small>Expected movement</small>
+
+    </div>
+
+    <div class="card primary-card">
+
+        <h4>🚦 Signal</h4>
+
+        <h2 class="{{ 'buy' if signal == 'BUY' else 'sell' }}">
+
+            {{ signal }}
+
+        </h2>
+
+        <small>Trading recommendation</small>
+
+    </div>
+
+    <div class="card">
+
+        <h4>📉 SMA 20</h4>
+
+        <h2 class="counter"
+            data-target="{{ sma20 }}"
+            data-prefix=""
+            data-suffix="">
+            0
+        </h2>
+
+        <small>20-Day Moving Average</small>
+
+    </div>
+
+    <div class="card">
+
+        <h4>📉 SMA 50</h4>
+
+        <h2 class="counter"
+            data-target="{{ sma50 }}"
+            data-prefix=""
+            data-suffix="">
+            0
+        </h2>
+
+        <small>50-Day Moving Average</small>
+
+    </div>
+
+    <div class="card">
+
+        <h4>📦 Volume</h4>
+
+        <h2 class="counter"
+            data-target="{{ volume }}"
+            data-prefix=""
+            data-suffix="">
+            0
+        </h2>
+
+        <small>Latest trading volume</small>
+
+    </div>
+
+</div>
+
+<div class="analytics-card">
+
+    <h2 class="section-title">
+
+        📊 Prediction Analytics
+
+    </h2>
+
+    <div class="analytics-grid">
+
+        <div class="analytics-item">
+
+            <h4>AI Confidence</h4>
+
+            <h2 class="counter"
+                data-target="{{ confidence }}"
+                data-prefix=""
+                data-suffix="%">
+                0%
+            </h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Risk Score</h4>
+
+            <h2>{{ risk_score }}/100</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Trend Strength</h4>
+
+            <h2>{{ trend_strength }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Momentum</h4>
+
+            <h2>{{ momentum }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Volume Status</h4>
+
+            <h2>{{ volume_status }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Market Sentiment</h4>
+
+            <h2>{{ market_sentiment }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Recommendation</h4>
+
+            <h2>{{ recommendation }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Target Price</h4>
+
+            <h2>${{ target_price }}</h2>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <h4>Stop Loss</h4>
+
+            <h2>${{ stop_loss }}</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="chart-card">
+
+    <h2 class="section-title">
+
+        📈 Interactive Stock Chart
+
+    </h2>
+
+    {{ chart|safe }}
+
+</div>
+
+<!-- ================================================= -->
+<!-- AI Recommendation Section -->
+<!-- ================================================= -->
+
+<div class="ai-card">
+
+    <h2>🤖 AI Recommendation</h2>
+
+    <div class="ai-grid">
+
+        <div>
+
+            <strong>Recommendation</strong>
+
+            <p>{{ recommendation }}</p>
+
+        </div>
+
+        <div>
+
+            <strong>Confidence</strong>
+
+            <p>{{ confidence }}%</p>
+
+        </div>
+
+        <div>
+
+            <strong>Target Price</strong>
+
+            <p>${{ target_price }}</p>
+
+        </div>
+
+        <div>
+
+            <strong>Stop Loss</strong>
+
+            <p>${{ stop_loss }}</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3>📋 Why did the AI recommend this?</h3>
+
+    <ul class="reason-list">
+
+        {% for reason in reasons %}
+
+        <li>
+
+            {{ reason }}
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+    <hr>
+
+    <h3>💡 Suggested Action</h3>
+
+    <p class="advice-text">
+
+        {{ advice }}
+
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

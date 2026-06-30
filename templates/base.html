@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        StockVision AI
+        {% endblock %}
+    </title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Optional Favicon -->
+
+    <link rel="icon"
+          href="{{ url_for('static', filename='images/logo.png') }}">
+
+      
+      <script>
+
+      if(localStorage.getItem("theme")==="dark"){
+
+            document.documentElement.classList.add("dark");
+
+      }
+
+      </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/variables.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/hero.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/cards.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/animations.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/loading.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/chart.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/history.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/analytics.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/portfolio.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/watchlist.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/compare.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/footer.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/auth.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/settings.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/profile.css') }}">
+
+</head>
+
+<body>
+
+    {% include "navbar.html" %}
+
+    <main class="page">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    {% include "footer.html" %}
+
+    <!-- Loader -->
+
+    <div class="loader-overlay">
+
+        <div class="loader"></div>
+
+        <div class="loader-title">
+
+            🤖 StockVision AI
+
+        </div>
+
+        <div class="loader-text"
+             id="loader-message">
+
+            Initializing AI Engine...
+
+        </div>
+
+        <div class="loader-progress">
+
+            <div class="loader-progress-bar"></div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script defer src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+    <script defer src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+    <script defer src="{{ url_for('static', filename='js/animations.js') }}"></script>
+
+    <script defer src="{{ url_for('static', filename='js/loading.js') }}"></script>
+
+</body>
+
+</html>

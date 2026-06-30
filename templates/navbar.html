@@ -1,0 +1,137 @@
+<nav class="navbar">
+
+    <!-- ========================= -->
+    <!-- Logo -->
+    <!-- ========================= -->
+
+    <div class="nav-left">
+
+        <a href="/" class="logo">
+
+            📈 <span>StockVision AI</span>
+
+        </a>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Navigation -->
+    <!-- ========================= -->
+
+    <div class="nav-right">
+
+        {% if session.get("user_id") %}
+
+            <a href="/" class="nav-link">
+
+                Dashboard
+
+            </a>
+
+            <a href="/watchlist" class="nav-link">
+
+                Watchlist
+
+            </a>
+
+            <a href="/history" class="nav-link">
+
+                History
+
+            </a>
+
+            <a href="/analytics" class="nav-link">
+
+                Analytics
+
+            </a>
+
+            <a href="/portfolio" class="nav-link">
+
+                Portfolio
+
+            </a>
+
+            <a href="/compare" class="nav-link">
+
+                Compare
+
+            </a>
+
+            <a href="/about" class="nav-link">
+
+                About
+
+            </a>
+
+            <!-- ========================= -->
+            <!-- Logged-in User -->
+            <!-- ========================= -->
+
+            <div class="user-menu">
+
+                <button class="user-btn">
+
+                    {% if current_user and current_user["profile_image"] %}
+
+                        <img
+                            class="navbar-avatar"
+                            src="{{ url_for(
+                                'static',
+                                filename='uploads/profiles/' +
+                                current_user['profile_image']
+                            ) }}">
+
+                    {% else %}
+
+                        👤
+
+                    {% endif %}
+
+                    {{ session["user_name"] }}
+
+                </button>
+
+                <div class="user-dropdown">
+
+                    <a href="/profile">
+
+                        👤 Profile
+
+                    </a>
+
+                    <a href="/settings">
+
+                        ⚙ Settings
+
+                    </a>
+
+                    <a href="/logout">
+
+                        🚪 Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% else %}
+
+            <a href="/login" class="nav-link">
+
+                Login
+
+            </a>
+
+            <a href="/register" class="nav-link">
+
+                Register
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>  

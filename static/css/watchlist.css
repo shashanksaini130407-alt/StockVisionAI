@@ -1,0 +1,291 @@
+/* ==========================================
+   WATCHLIST
+========================================== */
+
+.watchlist-container{
+
+    margin-top:40px;
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.watchlist-header{
+
+    margin-bottom:30px;
+
+}
+
+.watchlist-header h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+    color:var(--text);
+
+}
+
+.watchlist-header p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.watchlist-table{
+
+    background:var(--surface);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+.watchlist-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.watchlist-table th{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+.watchlist-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.watchlist-table tr:hover{
+
+    background:rgba(37,99,235,.05);
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.analyze-small{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.analyze-small:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.delete-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-watchlist{
+
+    background:var(--surface);
+
+    padding:70px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.empty-watchlist h2{
+
+    font-size:70px;
+
+}
+
+.empty-watchlist h3{
+
+    margin-top:15px;
+
+    font-size:30px;
+
+}
+
+.empty-watchlist p{
+
+    margin-top:15px;
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.watchlist-table{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    min-width:650px;
+
+}
+
+}
+
+.watchlist-page{
+
+    margin-top:40px;
+
+}
+
+.watchlist-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.watch-card{
+
+    padding:25px;
+
+}
+
+.watch-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.watch-top h2{
+
+    font-size:28px;
+
+}
+
+.watch-info p{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:14px 0;
+
+}
+
+.watch-buttons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:25px;
+
+}
+
+.analyze-small{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.delete-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+}
